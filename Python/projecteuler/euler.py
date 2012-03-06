@@ -1,8 +1,8 @@
 #!/usr/bin/env python2.7
 from datetime import date
+from itertools import permutations
 import argparse
 import math
-from itertools import permutations
 
 def problem1():
     """Sum of all natural numbers that are multiples of 3 or 5 and less than 1000"""
@@ -414,6 +414,30 @@ def problem26():
     longest = max(recurring_cycle(1, i) for i in range(2, 1001))
     print [i for i in range(2, 1001) if recurring_cycle(1, i) == longest][0]
 
+def problem30():
+    nums = []
+
+    for i in range(4000, 200000):
+        str_i = str(i)
+        sum_5s = 0
+
+        for char in str_i:
+            sum_5s += int(char)**5
+
+        if sum_5s == i:
+            nums.append(i)
+
+    print sum(nums)
+
+def problem29():
+    limit = 100
+    nums = set()
+
+    for i in range(2, limit + 1):
+        for t in range(2, limit + 1):
+            nums.add(i**t)
+
+    print len(nums)
 
 
 

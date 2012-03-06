@@ -1,0 +1,14 @@
+Team 7
+John: 19
+Sue: 20
+Pam: 35
+Team 42
+Jeff: 12
+Sam: 3
+Phil: 26
+Jill: 10
+Team 9
+Bill: 19
+John: 7
+Linda: 15
+

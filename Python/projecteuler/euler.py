@@ -1,6 +1,8 @@
 #!/usr/bin/env python2.7
+from datetime import date
 import argparse
 import math
+import itertools
 
 def problem1():
     """Sum of all natural numbers that are multiples of 3 or 5 and less than 1000"""
@@ -370,12 +372,37 @@ def problem97():
     """Last 10 digits of a really big prime number"""
     print (28433 * pow(2, 7830457, 10**10) + 1) % 10**10
 
+def problem19():
 
+    def next_first_of_month_in_20th():
+        """Generator to list every first of the month during the 20th century."""
+        first = date(1901, 1, 1)
+        yield first
+        while first.year < 2001:
+            if first.month == 12:
+                first = first.replace(year=first.year + 1)
+                first = first.replace(month=1)
+            else:
+                first = first.replace(month=first.month + 1)
+            yield first
 
+    print len([first for first in next_first_of_month_in_20th() if first.weekday() == 6])
 
+def problem23():
+    nums = open('nonabundant.txt', 'r')
+    numlist = []
+    for line in nums:
+        temp = line.split()
+        numlist.append(int(temp[1]))
+    print sum(numlist)
 
-
-
+def problem24():
+    nums = itertools.permutations('0123456789')
+    i = 0
+    while i < 1000000:
+        perm = next(nums)
+        i += 1
+    print ''.join(perm)
 
 
 

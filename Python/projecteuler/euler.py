@@ -2,7 +2,7 @@
 from datetime import date
 import argparse
 import math
-import itertools
+from itertools import permutations
 
 def problem1():
     """Sum of all natural numbers that are multiples of 3 or 5 and less than 1000"""
@@ -397,14 +397,22 @@ def problem23():
     print sum(numlist)
 
 def problem24():
-    nums = itertools.permutations('0123456789')
+    nums = permutations('0123456789')
     i = 0
     while i < 1000000:
         perm = next(nums)
         i += 1
     print ''.join(perm)
 
+def problem26():
+    def recurring_cycle(n, d):
+        for t in range(1, d):
+            if 1 == 10**t % d:
+                return t
+        return 0
 
+    longest = max(recurring_cycle(1, i) for i in range(2, 1001))
+    print [i for i in range(2, 1001) if recurring_cycle(1, i) == longest][0]
 
 
 

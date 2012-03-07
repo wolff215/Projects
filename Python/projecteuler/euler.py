@@ -454,6 +454,17 @@ def problem34():
 
     print sum(nums)
 
+def problem36():
+    num_list = []
+
+    for nums in range(1, 1000000):
+        if str(nums)[::-1] == str(nums):
+            temp = bin(nums)[2::]
+            if temp == temp[::-1]:
+                num_list.append(nums)
+
+    print sum(num_list)
+
 
 
 parser = argparse.ArgumentParser(

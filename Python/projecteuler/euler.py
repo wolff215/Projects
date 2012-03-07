@@ -542,6 +542,18 @@ def problem45():
 
     print h(n)
 
+def problem31():
+    target = 200
+    coins = [1,2,5,10,20,50,100,200]
+    #coins = [1,5,10,25,50,100]
+    ways = [1] + [0]*target
+
+    for coin in coins:
+        for i in range(coin, target+1):
+            ways[i] += ways[i-coin]
+
+    print ways[target]
+
 def triangles(n):
     x = (math.sqrt(8 * n + 1) - 1) / 2
     return x == int(x)

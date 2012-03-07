@@ -439,6 +439,21 @@ def problem29():
 
     print len(nums)
 
+def problem34():
+    nums = []
+
+    for i in range(145, 50000):
+        str_i = str(i)
+        sum_fact = 0
+
+        for char in str_i:
+            sum_fact += math.factorial(int(char))
+
+        if sum_fact == i:
+            nums.append(i)
+
+    print sum(nums)
+
 
 
 parser = argparse.ArgumentParser(

@@ -491,12 +491,6 @@ def problem27():
     print p
 
 def problem42():
-    def triangles(n):
-        x = (math.sqrt(8 * n + 1) - 1) / 2
-        if x - int(x) > 0:
-            return False
-        return True
-
     alphabet = {
             'A' : 1,
             'B' : 2,
@@ -539,6 +533,26 @@ def problem42():
             num.append(item)
 
     print len(num)
+
+def problem45():
+    h = lambda n: n * (2 * n - 1)
+
+    n = 144
+    while not(pentagonal(h(n))): n += 1
+
+    print h(n)
+
+def triangles(n):
+    x = (math.sqrt(8 * n + 1) - 1) / 2
+    return x == int(x)
+
+def hexagonal(n):
+    x = (math.sqrt(8 * n + 1) + 1) / 4
+    return x == int(x)
+
+def pentagonal(n):
+    x = (math.sqrt(24 * n + 1) + 1) / 6
+    return x == int(x)
 
 def is_prime(n):
     if n == 2 or n == 3: return True

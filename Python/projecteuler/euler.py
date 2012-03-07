@@ -480,8 +480,28 @@ def problem40():
 
     print int(num[1]) * int(num[10]) * int(num[100]) * int(num[1000]) * int(num[10000]) * int(num[100000]) * int(num[1000000])
 
+def problem27():
+    nmax = 0
+    for a in range(-1000, 1001):
+        for b in range(-1000, 1001):
+            n = 1
+            while is_prime(n**2 + a*n + b): n += 1
+            if n > nmax: nmax, p = n, a*b
 
+    print p
 
+def is_prime(n):
+    if n == 2 or n == 3: return True
+    if n < 2 or n % 2 == 0: return False
+    if n < 9: return True
+    if n % 3 == 0: return False
+    r = int(math.sqrt(n))
+    f = 5
+    while f <= r:
+        if n % f == 0: return False
+        if n % (f + 2) == 0: return False
+        f += 6
+    return True
 
 parser = argparse.ArgumentParser(
         description='A command line utility to run the desired Euler problem.',

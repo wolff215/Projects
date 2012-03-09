@@ -554,6 +554,42 @@ def problem31():
 
     print ways[target]
 
+def problem32():
+    result = set()
+    for item in range(2, 100):
+        start = 1234
+        if item > 9:
+            start = 123
+        for item2 in range(start, 10000/item + 1):
+                if pandigital(str(item) + str(item2) + str(item * item2)):
+                    result.add(item * item2)
+
+    print sum(result)
+
+def problem33():
+    d = 1
+    for i in range(1, 10):
+        for j in range(1, i):
+            for k in range(1, j):
+                ki = k*10 + i
+                ij = float(i)*10 + j
+                if k*ij == j*ki:
+                    d *= ij/ki
+
+    print d
+
+def problem38():
+    for n in range(9876, 9123, -1):
+        p = str(n * 1) + str(n * 2)
+        if pandigital(p):
+            print p
+            break
+
+
+def pandigital(n, s = 9):
+    n = str(n)
+    return len(n) == s and not '1234567890'[:s].strip(n)
+
 def triangles(n):
     x = (math.sqrt(8 * n + 1) - 1) / 2
     return x == int(x)

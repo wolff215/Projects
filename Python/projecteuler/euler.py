@@ -1,6 +1,7 @@
 #!/usr/bin/env python2.7
 from datetime import date
 from itertools import permutations
+from collections import defaultdict
 import argparse
 import math
 
@@ -619,6 +620,20 @@ def problem43():
         if check(a): s += a
 
     print s
+
+def problem39():
+    """For which value p <= 1000 is the number of solutions maximized with right side triangle of side length {a, b, c}"""
+    res = defaultdict(list)
+    lim = 501
+    for a in range(1, lim):
+        for b in range(a, lim):
+            for c in range(b, lim):
+                if a**2 + b**2 == c**2:
+                    res[a+b+c].append((a,b,c))
+    most = max(len(s) for s in res.values())
+    for p, s in sorted(res.items()):
+        if len(s) == most:
+            print p
 
 def pandigital(n, s = 9):
     n = str(n)

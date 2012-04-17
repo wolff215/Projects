@@ -635,6 +635,20 @@ def problem39():
         if len(s) == most:
             print p
 
+def problem44():
+    """Find pentagonal numbers, P1 & P2, who add to pentagonal number, subtract to pentagonal numbers with the smallest D = |P1 - P2|, what is D"""
+    def pent(i):
+        return i * (3 * i - 1) / 2
+
+    res = []
+    for item in range(1, 3001):
+        for num in range(item + 1, 3001):
+            add = pent(item) + pent(num)
+            sub = abs(pent(item) - pent(num))
+            if pentagonal(add) and pentagonal(sub):
+                res.append(sub)
+    print min(res)
+
 def pandigital(n, s = 9):
     n = str(n)
     return len(n) == s and not '1234567890'[:s].strip(n)

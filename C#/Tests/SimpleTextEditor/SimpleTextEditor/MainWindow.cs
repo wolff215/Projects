@@ -1,9 +1,13 @@
 using System;
 using Gtk;
 using System.IO;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 public partial class MainWindow: Gtk.Window
 {	
+	private SaveFileDialog saveFileDialog1;
+	
 	public MainWindow (): base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
@@ -11,7 +15,7 @@ public partial class MainWindow: Gtk.Window
 	
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
 	{
-		Application.Quit ();
+		Gtk.Application.Quit ();
 		a.RetVal = true;
 	}
 
@@ -36,9 +40,16 @@ public partial class MainWindow: Gtk.Window
 	protected void OnButtonSaveClicked (object sender, System.EventArgs e)
 	{
 		//code executed when Save button is clicked
-		StreamWriter sw = new StreamWriter("Test.txt");
-		sw.Write(textview1.Buffer.Text); //Write textview1 to file
+		//StreamWriter sw = new StreamWriter("Test.txt");
+		//sw.Write(textview1.Buffer.Text); //Write textview1 to file
+		saveFileDialog1.ShowDialog();
+	}
+	
+	private void saveFileDialog_FileOk(object sender, CancelEventArgs e)
+	{
+		string name = saveFileDialog1.FileName;
+		File.WriteAllText(name, textview1.Buffer.Text);
 		textview1.Buffer.Text = "Saved to file!"; //Notify user
-		sw.Close();
+		//sw.Close();
 	}
 }

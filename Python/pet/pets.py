@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-
 import MySQLdb as mdb
 import sys
 import argparse
@@ -10,11 +9,13 @@ con = mdb.connect('localhost', 'testuser', 'test623', 'testdb')
 bold = "\033[1m"
 reset = "\033[0;0m"
 
+
 def create_pets():
     with con:
         cur = con.cursor()
         cur.execute("LOAD DATA LOCAL INFILE '/home/wolff215/Projects/Python/pets.txt' INTO TABLE pet \
                 FIELDS TERMINATED BY '*'")
+
 
 def pet_ages():
     with con:
@@ -35,7 +36,6 @@ def pet_ages():
                 if death == None:
                     print name + ', the ' + species + ', is ' + age + ' years old.'
 
- #   startup()
 
 def pet_info():
     pet = raw_input(bold + "Which pet? (type all to list pets): " + reset)
@@ -77,7 +77,8 @@ def pet_info():
 
                     else:
                         print "%s is owned by %s, he is a %s, and his date of birth is unknown." % (row[0], row[1], row[2])
-#    startup()
+
+
 
 def add_pet():
     pet = raw_input("What is the pet's name? ")
@@ -101,7 +102,7 @@ def add_pet():
             cur.execute("INSERT INTO pet VALUES (%s, %s, %s, %s, %s, %s)", (pet, owner, species, sex, birth, death))
 
     print "%s successfully added." % (pet)
-#    startup()
+
 
 def remove_pet():
     pet = raw_input("What pet would you like to remove? ")
@@ -141,9 +142,8 @@ def remove_pet():
             else:
                 cur.execute("DELETE FROM pet WHERE name = %s AND species = %s AND owner = %s", (pet,species,owner))
                 print "\nPet removed successfully."
-
-#    startup()
 #    print len(rows)
+
 
 def startup():
 

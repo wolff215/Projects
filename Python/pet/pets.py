@@ -142,15 +142,54 @@ def remove_pet():
             else:
                 cur.execute("DELETE FROM pet WHERE name = %s AND species = %s AND owner = %s", (pet,species,owner))
                 print "\nPet removed successfully."
+
+#def edit_pet():
+#    pet = raw_input("What pet would you like to edit? ")
+
+#    while pet == '':
+#        pet = raw_input('Please enter a pet name: ')
+
+#    with con:
+#       cur = con.cursor()
+#       cur.execute("SELECT * FROM pet WHERE name = %s", (pet))
+#       rows = cur.fetchall()
+
+#       if len(rows) == 0:
+#           print "\nPet not found..."
+
+#       elif len(rows) == 1:
+#           add_pet(pet)
+
+#       else:
+#           count = 1
+#           for row in rows:
+#               print "\n%s. %s is owned by %s, they are a %s." % (count, row[0], row[1], row[2])
+#               count = count + 1
+
+#           number = raw_input("\nMore than one pet with that name found,\n" \
+#                               + "Please enter number corresponding to correct pet: ")
+
+#           species = rows[int(number)-1][2]
+#           owner = rows[int(number)-1][1]
+#           cur.execute("SELECT * FROM pet WHERE species = %s AND name = %s AND owner = %s", (species,pet,owner))
+#           sel = cur.fetchall()
+
+#           if len(sel) == 0:
+#               print "\nPet not found..."
+
+#           else:
+#		add_pet(pet)
+
 #    print len(rows)
 
 
 def startup():
 
     functions = {'1' : add_pet,
-                    '2' : pet_info,
-                    '3' : pet_ages,
-                    '4' : remove_pet,
+                '2' : pet_info,
+                '3' : pet_ages,
+                '4' : remove_pet,
+#	'5' : edit_pet,
     }
 
     while True:
@@ -159,7 +198,8 @@ def startup():
                                     "\n2. Pet information" + \
                                     "\n3. Pet ages" + \
                                     "\n4. Remove pet" + \
-                                    "\n5. Quit" + reset + \
+#                                   "\n5. Edit pet" + \
+				"\n5. Quit" + reset + \
                                     "\n\nWhat would you like to run? ")
             if selection.isdigit():
                 if int(selection) >= 0  and int(selection) < (len(functions) + 2):

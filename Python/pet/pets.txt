@@ -1,8 +1,8 @@
-Scruffy*Isaac*cat*f*2003-08-15*\N
-Misty*Cathy*cat*f*2003-08-15*\N
-Cleatus*Cathy*cat*m*2011-10-05*\N
-Bowejangles*Isaac*cat*m*2011-10-05*\N
-Willie*Dennis*dog*m*2010-04-17*\N
-Harry*Dennis*cat*m*\N*2011-06-11
-Dottie*Cathy*dog*f*\N*\N
-Maggie*Cathy*dog*f*\N*2013-05-13
+Scruffy,Isaac,cat,f,2003-08-15,2017-07-16
+Misty,Cathy,cat,f,2003-08-15,\N
+Cleatus,Cathy,cat,m,2011-10-05,\N
+Bowejangles,Isaac,cat,m,2011-10-05,2013-9-15
+Willie,Dennis,dog,m,2010-04-17,\N
+Harry,Dennis,cat,m,\N,2011-06-11
+Dottie,Cathy,dog,f,\N,2015-02-16
+Maggie,Cathy,dog,f,\N,2013-05-13

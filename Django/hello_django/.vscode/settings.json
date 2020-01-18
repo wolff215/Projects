@@ -1,4 +1,3 @@
 {
-    "python.pythonPath": "C:\\Users\\Isaac\\Documents\\Python envs\\env\\Scripts\\python.exe",
-    "python.venvPath": "C:/Users/Isaac/Documents/Python envs"
+    "python.pythonPath": "env\\Scripts\\python.exe"
 }
